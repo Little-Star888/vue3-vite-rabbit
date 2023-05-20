@@ -1,5 +1,19 @@
 <script setup>
-const payInfo = {};
+import { ref, onMounted } from "vue";
+import { getOrderDetailAPI } from "@/apis/pay";
+import { useRoute } from "vue-router";
+const route = useRoute();
+const payInfo = ref({});
+const getPayInfo = async () => {
+  try {
+    const res = await getOrderDetailAPI(route.query.id);
+    payInfo.value = res.data.result;
+    console.log(res);
+  } catch (err) {
+    console.log(err);
+  }
+};
+onMounted(() => getPayInfo());
 </script>
 
 
