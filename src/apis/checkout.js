@@ -3,3 +3,8 @@ import httpInstance from "@/utils/http";
 export const getCheckoutAPI = () => {
   return httpInstance.get(`/member/order/pre`);
 };
+
+// 生成订单id接口
+export const createOrderAPI = (data) => {
+  return httpInstance.post(`/member/order`, data);
+};
