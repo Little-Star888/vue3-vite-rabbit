@@ -17,8 +17,18 @@ const getCheckoutInfo = async () => {
 };
 onMounted(() => getCheckoutInfo());
 // 切换地址
+// 控制弹窗打开
 const showDialog = ref(false);
-// const toggleFlag = () => {};
+// 地址默认激活切换
+const activeAddress = ref({});
+const switchAddress = (item) => {
+  activeAddress.value = item;
+};
+const confirm = () => {
+  curAddress.value = activeAddress.value;
+  showDialog.value = false;
+  activeAddress.value = {};
+};
 </script>
 
 <template>
@@ -45,7 +55,7 @@ const showDialog = ref(false);
               </ul>
             </div>
             <div class="action">
-              <el-button size="large" @click="showDialog = !showDialog"
+              <el-button size="large" @click="showDialog = true"
                 >切换地址</el-button
               >
               <el-button size="large" @click="addFlag = true"
@@ -140,6 +150,8 @@ const showDialog = ref(false);
         class="text item"
         v-for="item in checkInfo.userAddresses"
         :key="item.id"
+        @click="switchAddress(item)"
+        :class="{ active: activeAddress.id === item.id }"
       >
         <ul>
           <li>
@@ -153,7 +165,7 @@ const showDialog = ref(false);
     <template #footer>
       <span class="dialog-footer">
         <el-button>取消</el-button>
-        <el-button type="primary">确定</el-button>
+        <el-button type="primary" @click="confirm">确定</el-button>
       </span>
     </template>
   </el-dialog>
