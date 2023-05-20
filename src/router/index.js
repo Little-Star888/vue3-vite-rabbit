@@ -54,7 +54,7 @@ const router = createRouter({
           component: () => import("@/views/Member/index.vue"),
           children: [
             {
-              path: "userInfo",
+              path: "",
               name: "userInfo",
               component: () => import("@/views/Member/components/UserInfo.vue"),
             },

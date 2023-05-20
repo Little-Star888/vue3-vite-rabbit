@@ -46,9 +46,7 @@ const confirmEvent = () => {
             >
           </li>
           <li>
-            <a
-              href="javascript:;"
-              @click="$router.push({ path: 'member/userInfo' })"
+            <a href="javascript:;" @click="$router.push({ path: '/member' })"
               >会员中心</a
             >
           </li>
