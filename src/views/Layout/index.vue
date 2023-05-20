@@ -13,7 +13,7 @@ import LayoutFixed from "./components/LayoutFixed.vue";
 import LayoutHeader from "./components/LayoutHeader.vue";
 import LayoutNav from "./components/LayoutNav.vue";
 import LayoutFooter from "./components/LayoutFooter.vue";
-import { useCategoryStore } from "@/stores/categoryStoreStore";
+import { useCategoryStore } from "@/stores/categoryStore";
 import { onMounted } from "vue";
 const categoryStore = useCategoryStore();
 onMounted(() => categoryStore.getCategoryList());
