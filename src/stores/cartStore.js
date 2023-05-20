@@ -55,13 +55,17 @@ export const useCartStore = defineStore(
         }
       }
     };
-    // 3.单选功能
+    // 3. 清除购物车
+    const clearCart = () => {
+      cartList.value = [];
+    };
+    // 4.单选功能
     const singleCheck = (skuId, selected) => {
       const item = cartList.value.find((item) => item.skuId === skuId);
       item.selected = selected;
     };
 
-    // 4.全选功能
+    // 5.全选功能
     const allCheck = (selected) => {
       cartList.value.forEach((item) => (item.selected = selected));
     };
@@ -102,6 +106,7 @@ export const useCartStore = defineStore(
       isLogin,
       addCart,
       delCart,
+      clearCart,
       singleCheck,
       allCheck,
     };

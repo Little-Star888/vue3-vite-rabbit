@@ -2,9 +2,11 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
 import { loginAPI } from "@/apis/user";
+import { useCartStore } from "./cartStore";
 export const useUserStore = defineStore(
   "user",
   () => {
+    const cartStore = useCartStore();
     // 用户数据
     const userData = ref({});
     // 登录方法
@@ -16,6 +18,7 @@ export const useUserStore = defineStore(
     // 退出时清除用户信息
     const clearUserInfo = () => {
       userData.value = {};
+      cartStore.clearCart();
     };
     return {
       clearUserInfo,
