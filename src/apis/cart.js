@@ -11,18 +11,12 @@ export const delCartAPI = (ids) => {
   }
   return httpInstance.delete(`/member/cart`, { data: { ids } });
 };
-
-// export const delCartAPI = (ids) => {
-//   return httpInstance({
-//     url: "/member/cart",
-//     method: "DELETE",
-//     data: {
-//       ids,
-//     },
-//   });
-// };
-
 // 获取最新的购物车列表接口
 export const getNewestCartListAPI = () => {
   return httpInstance.get(`/member/cart`);
+};
+
+// 合并购物车列表接口
+export const mergeCartListAPI = (arr) => {
+  return httpInstance.post("/member/cart/merge", arr);
 };

@@ -16,7 +16,7 @@ export const useCartStore = defineStore(
     // 更新购物车方法复用封装
     const updateCartNewList = async () => {
       const { data } = await getNewestCartListAPI();
-      console.log(data.result);
+      // console.log(data.result);
       cartList.value = data.result;
     };
     // 1. 添加购物车
@@ -107,6 +107,7 @@ export const useCartStore = defineStore(
       addCart,
       delCart,
       clearCart,
+      updateCartNewList,
       singleCheck,
       allCheck,
     };
