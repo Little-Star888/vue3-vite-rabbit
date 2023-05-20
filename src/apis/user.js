@@ -5,3 +5,7 @@ export const loginAPI = ({ account, password }) => {
   console.log(account, password);
   return httpInstance.post(`/login`, { account, password });
 };
+// 猜你喜欢接口
+export const getLikeListAPI = ({ limit = 4 }) => {
+  return httpInstance.get(`/goods/relevant`, { params: { limit } });
+};

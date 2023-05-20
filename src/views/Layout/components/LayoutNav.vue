@@ -38,8 +38,20 @@ const confirmEvent = () => {
               </template>
             </el-popconfirm>
           </li>
-          <li><a href="javascript:;" @click="$router.push('/member/userOrder')">我的订单</a></li>
-          <li><a href="javascript:;" @click="$router.push('/member')">会员中心</a></li>
+          <li>
+            <a
+              href="javascript:;"
+              @click="$router.push({ path: '/member/userOrder' })"
+              >我的订单</a
+            >
+          </li>
+          <li>
+            <a
+              href="javascript:;"
+              @click="$router.push({ path: 'member/userInfo' })"
+              >会员中心</a
+            >
+          </li>
         </template>
         <template v-else>
           <li>
