@@ -16,19 +16,15 @@ export const useCartStore = defineStore(
     // 1. 添加购物车
     const addCart = async (goods) => {
       // console.log(goods);
-      alert('9999')
       // 添加购物车操作
       if (isLogin) {
-        console.log(isLogin + "登录了");
         // 登录的话走登录后的逻辑
         await insertCartAPI(goods);
         const { data } = await getNewestCartListAPI();
         console.log(data.result);
         cartList.value = data.result;
-        console.log("登录了哈哈啊哈哈哈哈啊哈");
       } else {
         // 未登录走未登录的逻辑
-        console.log(isLogin + "没有登录");
         // 已添加过 - count++
         const item = cartList.value.find((item) => {
           return item.skuId === goods.skuId;
